@@ -76,8 +76,8 @@ WSGI_APPLICATION = 'meiduo_mall.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-
-DATABASES = {
+#
+数据库配置DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'HOST': '127.0.0.1',  # 数据库主机
@@ -110,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
-
+# 时间地点
 LANGUAGE_CODE = 'zh-hans'
 
 TIME_ZONE = 'Asia/Shanghai'
@@ -127,6 +127,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+
+
+# redis数据库
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
@@ -145,3 +148,9 @@ CACHES = {
 }
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 SESSION_CACHE_ALIAS = "session"
+
+# 异常处理
+REST_FRAMEWORK = {
+    # 异常处理
+    'EXCEPTION_HANDLER': 'meiduo_mall.utils.exceptions.exception_handler',
+}
